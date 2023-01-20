@@ -4,7 +4,7 @@ import CalculatorPage from "../pages/CalculatorPage";
 
 const router = createBrowserRouter([
   {
-    path: '/calculadora',
+    path: '/',
     element: <CalculatorPage />
 
   }
