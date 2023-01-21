@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import bucket_image from '../../../../assets/bucket.svg'
+import { useContext } from "react";
+import { PaintContext, PaintProvider } from "../../../../context/resultContext";
+
+
 
 const StepTitle = styled.h3`
 font-family: ${props => props.theme.fonts[0]};
@@ -36,7 +40,7 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 text-align: center;
-width: 50%;
+width: 33.33%;
 
 `;
 
@@ -50,29 +54,28 @@ color: #8D8D8D;
 export default function Step4() {
 
   const bucket_quantity = [18, 3, 2, 5];
+  const { requiredArea, suggestedPurchase } = useContext(PaintContext);
 
   return (
     <div>
       <StepTitle>4. Resultado</StepTitle>
-      <StepSubTitle>Clique no formato da lata desejado para que a quantidade em litros seja convertida em número de latas</StepSubTitle>
 
       <ResultContainer>
-        <ResultText>100</ResultText> <StepTitle>Litros</StepTitle>
+        <ResultText>{requiredArea} m²</ResultText> <StepTitle>Area Total</StepTitle>
       </ResultContainer>
-      <ResultContainer>
-        <ResultText>100</ResultText><StepTitle>Latas</StepTitle>
-      </ResultContainer>
+      {
+        suggestedPurchase.map((item, index) => (
+          <ResultContainer key={index}>
+            <ResultText>
+              {item.size} L
+            </ResultText>
+            <StepTitle>
+              {item.amount} Galões
+            </StepTitle>
+          </ResultContainer>
+        ))
+      }
 
-
-      <ImageContainer>
-        {bucket_quantity.map((quantity, index) => (
-          <BucketImage key={index} src={bucket_image} />
-        ))}
-        <a >
-          <BucketImage src={bucket_image} />
-        </a>
-
-      </ImageContainer>
     </div>
   );
 } 

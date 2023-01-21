@@ -1,5 +1,8 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { PaintContext } from "../../../../context/resultContext";
+import { Link } from "react-router-dom";
+
 
 const StepTitle = styled.h3`
 font-family: ${props => props.theme.fonts[0]};
@@ -38,7 +41,7 @@ font-size: 16px;
 color: #8D8D8D;
 `;
 
-const CalculeteButton = styled.button`
+const CalculeteButton = styled(Link)`
 background: #5AADE5;
 border-radius: 10px;
 border: none;
@@ -46,10 +49,13 @@ padding: 8px;
 color: #fff;
 margin-left: 10px;
 cursor: pointer;
+text-decoration: none;
 &:hover {
   background: #137bc0;
 }
 `;
+
+
 
 export default function Step3() {
   const [wallHeights, setWallHeights] = useState([0]);
@@ -60,36 +66,46 @@ export default function Step3() {
   const [numberOfDoors, setNumberOfDoors] = useState(0);
   const [doorWidths, setDoorWidths] = useState([]);
   const [doorHeights, setDoorHeights] = useState([]);
-  const [requiredArea, setRequiredArea] = useState(0);
-  const [suggestedPurchase, setSuggestedPurchase] = useState([]);
+
+  const { setRequiredArea, setSuggestedPurchase, requiredArea, suggestedPurchase, activeStep, setActiveStep, } = useContext(PaintContext);
 
   function addWall() {
-    setWallHeights([...wallHeights, 0]);
-    setWallWidths([...wallWidths, 0]);
+    if (wallHeights.length < 4) {
+      setWallHeights([...wallHeights, 1]);
+      setWallWidths([...wallWidths, 1]);
+    } else {
+      alert("You cannot have more than 4 walls");
+    }
   }
 
   function calculateRequiredArea() {
     let wallArea = 0;
     for (let i = 0; i < wallHeights.length; i++) {
+      if (wallHeights[i] < 1 || wallHeights[i] > 50) {
+        alert("Wall height must be between 1 and 50 square meters");
+        return;
+      }
+      if (wallWidths[i] < 1 || wallWidths[i] > 50) {
+        alert("Wall width must be between 1 and 50 square meters");
+        return;
+      }
       let currentWallArea = wallHeights[i] * wallWidths[i];
       wallArea += currentWallArea;
     }
-
-    let windowArea = 0;
-    for (let i = 0; i < windowWidths.length; i++) {
-      let currentWindowArea = windowWidths[i] * windowHeights[i];
-      windowArea += currentWindowArea;
+    let totalArea = wallArea;
+    if (numberOfWindows > 0) {
+      totalArea -= (numberOfWindows * 2.4);
     }
-
-    let doorArea = 0;
-    for (let i = 0; i < doorWidths.length; i++) {
-      let currentDoorArea = doorWidths[i] * doorHeights[i];
-      doorArea += currentDoorArea;
+    if (numberOfDoors > 0) {
+      totalArea -= (numberOfDoors * 1.68);
     }
-
-    let totalArea = wallArea - windowArea - doorArea;
+    if (totalArea > (wallArea / 2)) {
+      totalArea = wallArea / 2;
+    }
     setRequiredArea(totalArea);
     suggestPurchase(totalArea);
+    console.log(totalArea);
+    setActiveStep((i) => i + 1)
   }
 
   function suggestPurchase(requiredArea) {
@@ -157,15 +173,13 @@ export default function Step3() {
         <InputText type="number" name="largura" onChange={e => setDoorHeights(e.target.value)}></InputText>
       </Form>
 
-      <CalculeteButton onClick={calculateRequiredArea}>Calcular</CalculeteButton>
-
-      <h2>Area: {requiredArea} metros2</h2>
-      <h2>Sugerimos que compre:</h2>
-      <ul>
-        {suggestedPurchase.map((can, index) => (
-          <li key={index}>{can.amount} galão de {can.size} litro(s)</li>
-        ))}
-      </ul>
+      <center>
+        <CalculeteButton
+          onClick={
+            calculateRequiredArea }>
+          Calcular
+        </CalculeteButton>
+      </center>
 
 
     </Container>

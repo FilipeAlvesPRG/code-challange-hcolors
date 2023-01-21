@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import StepperComponent from "../../components/StepperComponent";
-import { StepperProvider } from "../../context";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Step1 from "../../components/StepperComponent/StepItems/Step1";
 import Step2 from "../../components/StepperComponent/StepItems/Step2";
 import Step3 from "../../components/StepperComponent/StepItems/Step3";
 import Step4 from "../../components/StepperComponent/StepItems/Step4";
+import { PaintContext } from "../../context/resultContext";
 
 const Container = styled.div`
   margin-top: 40px;
@@ -27,20 +27,18 @@ const SubTitle = styled.h3`
 `;
 
 const StepButton = styled.button`
-display: none;
   background: #9BD9A7;
   border-radius: 10px;
   border: none;
   padding: 10px;
- align-items: center;
- justify-content: center;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   width: 100px;
   position: absolute;
   bottom: 0 !important;
   cursor: pointer;
   margin-bottom: 50px;
-
 
 `;
 
@@ -49,7 +47,7 @@ export default function CalculatorPage() {
   const pages = ['', '', '', ''];
   const steps = [...Array(4).keys()].map((index) => ({ title: pages[index] }));
 
-  const [activeStep, setActiveStep] = useState(0);
+  const { activeStep, setActiveStep } = useContext(PaintContext);
 
   return (
     <Container>
@@ -80,26 +78,59 @@ export default function CalculatorPage() {
       />
 
       {
-        activeStep == 0 ? <Step1 /> : ""
+        activeStep == 0 ?
+          <>
+            <Step1 />
+            <center>
+              <StepButton type="button" onClick={() => setActiveStep((i) => i + 1)}>
+                Continuar
+              </StepButton>
+            </center>
+          </>
+          : ""
 
       }
       {
-        activeStep == 1 ? <Step2 /> : ""
+        activeStep == 1 ?
+          <>
+            <Step2 />
+            <center>
+              <StepButton type="button" onClick={() => setActiveStep((i) => i + 1)}>
+                Continuar
+              </StepButton>
+            </center>
+          </>
+          :
+
+          ""
 
       }
       {
-        activeStep == 2 ? <Step3 /> : ""
+        activeStep == 2 ?
+
+          <>
+            <Step3 />
+          </>
+
+          :
+          ""
 
       }
       {
-        activeStep == 3 ? <Step4 /> : ""
+        activeStep == 3 ?
+          <>
+            <Step4 />
+            <center>
+              <StepButton type="button" onClick={() => setActiveStep((i) => i + 1)}>
+                Finalizar
+              </StepButton>
+            </center>
+          </>
+
+          : ""
       }
 
-      <center>
-        <StepButton type="button" onClick={() => setActiveStep((i) => i + 1)}>
-          Continuar
-        </StepButton>
-      </center>
+
 
     </Container>
   );
