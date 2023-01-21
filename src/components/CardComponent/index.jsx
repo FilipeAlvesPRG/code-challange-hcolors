@@ -26,7 +26,7 @@ const CardImage = styled.img`
 padding: 20px;
 `;
 
-const CardContainer = styled.div`
+export const CardContainer = styled.div`
  display: flex;
   justify-content: space-between;
   margin-left:80px;
@@ -44,28 +44,14 @@ float: center;
 }
 `;
 
-export default function CardComponent() {
-  const ambients = ['Ambiente Interno', 'Ambiente Externo', 'Ambiente Interno e Externo']
-  
+export default function CardComponent({image, title, id}) {
   return (
     <CardContainer>
       <Card>
-        <CardImage src={internal_ambient} />
-        <CardTitle>{ambients[0]}</CardTitle>
-        <CardRadioButton type={'radio'} id={ambients[0]} name={'ambient_type'}></CardRadioButton>
+        <CardImage src={image} />
+        <CardTitle>{title}</CardTitle>
+        <CardRadioButton type={'radio'} id={id} name={'ambient_type'}></CardRadioButton>
       </Card>
-
-      <Card>
-        <CardImage src={external_ambient} />
-        <CardTitle>{ambients[1]}</CardTitle>
-        <CardRadioButton type='radio' id={ambients[1]} name={'ambient_type'}></CardRadioButton>
-      </Card>
-
-      <CardRight>
-        <CardImage src={both_ambients} />
-        <CardTitle>{ambients[2]}</CardTitle>
-        <CardRadioButton type={'radio'} id={ambients[2]} name={'ambient_type'}></CardRadioButton>
-      </CardRight>
     </CardContainer>
   )
 }
