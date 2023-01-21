@@ -1,14 +1,16 @@
 import logo_with_text_black from '../../assets/logo_with_text_black.svg'
 import styled from 'styled-components';
+import MenuMobileComponent from '../MenuMobileComponent';
 
 const NavBar = styled.nav`
-    display: flex;
+  display: flex;
   justify-content: space-around;
   align-items: center;
   background: transparent;
   height: 8vh;
   margin-left: 10px;
   margin-right: 20px;
+  width: 100%;
 `;
 
 const LogoImage = styled.img`
@@ -29,6 +31,25 @@ const LinkMenu = styled.a`
 const NavList = styled.ul`
   list-style: none;
   display: flex;
+  flex-flow: row nowrap;
+  li {
+    padding: 18px 10px;
+  }
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
+    background-color: #9BD9A7;
+    position: fixed;
+    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    padding-top: 3.5rem;
+    transition: transform 0.3s ease-in-out;
+    li {
+      color: #fff;
+    }
+  }
 `;
 
 const NavItem = styled.li`
@@ -65,20 +86,20 @@ const OutilineButton = styled.button`
 `;
 
 
-export default function TopBarComponent() {
+export default function TopBarComponent({ open }) {
   return (
-      <NavBar>
-        <a href="#">
-          <LogoImage src={logo_with_text_black} />
-        </a>
-        <NavList>
-          <NavItem><LinkMenu href="#">Sobre nós</LinkMenu></NavItem>
-          <NavItem><LinkMenu href="calculadora">Calculadora</LinkMenu></NavItem>
-          <NavItem><LinkMenu href="#">Serviços</LinkMenu></NavItem>
-          <NavItem><LinkMenu href="#">Dicas</LinkMenu></NavItem>
-        </NavList>
+    <NavBar >
+      <a href="#">
+        <LogoImage src={logo_with_text_black} />
+      </a>
+      <NavList open={open}>
+        <NavItem><LinkMenu href="#">Sobre nós</LinkMenu></NavItem>
+        <NavItem><LinkMenu href="calc">Calculadora</LinkMenu></NavItem>
+        <NavItem><LinkMenu href="#">Serviços</LinkMenu></NavItem>
+        <NavItem><LinkMenu href="#">Dicas</LinkMenu></NavItem>
         <Button>Entrar</Button>
         <OutilineButton>Cadastro</OutilineButton>
-      </NavBar>
+      </NavList>
+    </NavBar>
   );
 }
