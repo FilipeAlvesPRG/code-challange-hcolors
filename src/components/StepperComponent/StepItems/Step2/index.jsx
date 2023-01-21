@@ -1,10 +1,5 @@
 import styled from "styled-components";
-
-
-const StepTitle = styled.h3`
-font-family: ${props => props.theme.fonts[0]};
-text-align: center;
-`;
+import StepTitleComponent from "../../StepTitleComponent";
 
 const InputSelect = styled.select`
 border: 1px solid #8D8D8D;
@@ -28,9 +23,7 @@ justify-content: center;
 export default function Step2() {
   return (
     <>
-      <StepTitle>
-        2. Em qual superfície a tinta será aplicada?
-      </StepTitle>
+      <StepTitleComponent props={'2. Em qual superfície a tinta será aplicada?'}/>
       <InputContainer>
         <InputSelect>
           <option value="">Selecione uma opção</option>

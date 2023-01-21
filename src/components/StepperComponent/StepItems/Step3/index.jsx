@@ -2,12 +2,8 @@ import styled from "styled-components";
 import { useState, useContext } from "react";
 import { PaintContext } from "../../../../context/resultContext";
 import { Link } from "react-router-dom";
+import StepTitleComponent from "../../StepTitleComponent";
 
-
-const StepTitle = styled.h3`
-font-family: ${props => props.theme.fonts[0]};
-text-align: center;
-`;
 
 const Container = styled.div`
 
@@ -82,11 +78,11 @@ export default function Step3() {
     let wallArea = 0;
     for (let i = 0; i < wallHeights.length; i++) {
       if (wallHeights[i] < 1 || wallHeights[i] > 50) {
-        alert("Wall height must be between 1 and 50 square meters");
+        alert("A altura da parede deve estar entre 1 e 50 metros quadrados");
         return;
       }
       if (wallWidths[i] < 1 || wallWidths[i] > 50) {
-        alert("Wall width must be between 1 and 50 square meters");
+        alert("A largura da parede deve estar entre 1 e 50 metros quadrados");
         return;
       }
       let currentWallArea = wallHeights[i] * wallWidths[i];
@@ -126,10 +122,7 @@ export default function Step3() {
 
   return (
     <Container>
-      <StepTitle>
-        3. Qual a dimensão da área que pretende pintar?
-      </StepTitle>
-
+      <StepTitleComponent props={'3. Qual a dimensão da área que pretende pintar?'}/>
       <Form>
         <FormTitle>Coloque as dimensões a ser pintada (m)</FormTitle>
         <button onClick={addWall}>Add Wall</button>
@@ -176,7 +169,7 @@ export default function Step3() {
       <center>
         <CalculeteButton
           onClick={
-            calculateRequiredArea }>
+            calculateRequiredArea}>
           Calcular
         </CalculeteButton>
       </center>
