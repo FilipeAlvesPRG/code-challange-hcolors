@@ -6,7 +6,7 @@ import external_ambient from '../../../../assets/external_ambient.svg'
 import both_ambients from '../../../../assets/both_ambients.svg'
 
 const StepContainer = styled.div`
-width: 100%;
+width: auto;
 `;
 
 export default function Step1() {

@@ -9,8 +9,7 @@ import { PaintContext } from "../../context/resultContext";
 
 const Container = styled.div`
   margin-top: 40px;
-  height: 100%;
- 
+
 `;
 
 const Title = styled.h1`
@@ -37,8 +36,8 @@ const StepButton = styled.button`
   width: 100px;
   position: fixed;
   bottom: 0;
+  margin-bottom: 20px;
   cursor: pointer;
-  margin-bottom: 50px;
   @media (max-width: 768px) {
     position: fixed;
   }
@@ -74,7 +73,7 @@ export default function CalculatorPage() {
         theme={{
           breadcrumb: {
             activeColor: "#9BD9A7",
-            activeBorderColor: "transparent"
+            activeBorderColor: "#9BD9A7"
           }
         }}
       />

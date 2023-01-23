@@ -3,6 +3,9 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 
 const StepContainer = styled.div`
+margin: 0;
+padding: 0;
+cursor: pointer;
 @media (max-width: 768px) {
  
 }
@@ -20,6 +23,8 @@ export default function StepperComponent({ step, steps, theme }) {
         activeBorderColor={theme.breadcrumb.activeBorderColor}
         completeBorderStyle="solid"
         completeColor={'#9BD9A7'}
+       completeBarColor={'#9BD9A7'}
+       defaultBorderWidth={6}
       />
     </StepContainer>
 

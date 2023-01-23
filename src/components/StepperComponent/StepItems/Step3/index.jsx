@@ -48,6 +48,7 @@ cursor: pointer;
 text-decoration: none;
 &:hover {
   background: #137bc0;
+  margin-top: 50px;
 }
 `;
 
@@ -145,11 +146,11 @@ export default function Step3() {
             <div key={index}>
               <InputTextLabel>Altura da parede: {index + 1}:</InputTextLabel>
 
-              <InputText type="number" id="wall-height" name="altura" onChange={e => setWallHeights(wallHeights.map((val, i) => i === index ? e.target.value : val))}
+              <InputText min="0" type="number" id="wall-height" name="altura" onChange={e => setWallHeights(wallHeights.map((val, i) => i === index ? e.target.value : val))}
               ></InputText>
 
               <InputTextLabel>Largura da parede: {index + 1}</InputTextLabel>
-              <InputText type="number" name="wall-width" onChange={e => setWallWidths(wallWidths.map((val, i) => i === index ? e.target.value : val))}></InputText>
+              <InputText min="0" type="number" name="wall-width" onChange={e => setWallWidths(wallWidths.map((val, i) => i === index ? e.target.value : val))}></InputText>
             </div>
           ))
         }
@@ -160,26 +161,26 @@ export default function Step3() {
         <FormTitle>Coloque as dimensões da JANELA (m)</FormTitle>
 
         <InputTextLabel >Numero de Janelas</InputTextLabel>
-        <InputText type="number" id="numero de janelas" name="altura" onChange={e => setNumberOfWindows(e.target.value)}></InputText>
+        <InputText min="0" type="number" id="numero de janelas" name="altura" onChange={e => setNumberOfWindows(e.target.value)}></InputText>
 
         <InputTextLabel for={'input_altura'}>Altura</InputTextLabel>
-        <InputText type="text" id="input_altura" name="altura" onChange={e => setWindowHeights(e.target.value)}></InputText>
+        <InputText min="0" type="text" id="input_altura" name="altura" onChange={e => setWindowHeights(e.target.value)}></InputText>
 
         <InputTextLabel>Largura</InputTextLabel>
-        <InputText type="text" name="largura" onChange={e => setWindowWidths(e.target.value)} ></InputText>
+        <InputText min="0" type="text" name="largura" onChange={e => setWindowWidths(e.target.value)} ></InputText>
       </Form>
 
       <Form>
         <FormTitle>Coloque as dimensões da PORTA (m)</FormTitle>
 
         <InputTextLabel for={'input_altura'}>Número de Portas</InputTextLabel>
-        <InputText type="number" id="input_altura" name="altura" onChange={e => setNumberOfDoors(e.target.value)}></InputText>
+        <InputText min="0" type="number" id="input_altura" name="altura" onChange={e => setNumberOfDoors(e.target.value)}></InputText>
 
         <InputTextLabel for={'input_altura'}>Altura</InputTextLabel>
-        <InputText type="number" id="input_altura" name="altura" onChange={e => setDoorWidths(e.target.value)}></InputText>
+        <InputText min="0" type="number" id="input_altura" name="altura" onChange={e => setDoorWidths(e.target.value)}></InputText>
 
         <InputTextLabel>Largura</InputTextLabel>
-        <InputText type="number" name="largura" onChange={e => setDoorHeights(e.target.value)}></InputText>
+        <InputText min="0" type="number" name="largura" onChange={e => setDoorHeights(e.target.value)}></InputText>
       </Form>
 
       <center>

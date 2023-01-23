@@ -8,13 +8,11 @@ const NavBar = styled.nav`
   align-items: center;
   background: transparent;
   height: 8vh;
-  margin-left: 10px;
-  margin-right: 20px;
   width: 100%;
 `;
 
 const LogoImage = styled.img`
-  width: 150px;
+  width: 120px;
   
 `;
 

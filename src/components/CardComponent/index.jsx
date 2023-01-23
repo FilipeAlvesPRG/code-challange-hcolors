@@ -5,16 +5,7 @@ border: 1px solid #8D8D8D;
 border-radius: 10px;
 background-color: #F9F9F9;
 width: fit-content;
-margin-left: 20px;
-float: left;
-`;
 
-const CardRight = styled.div`
-border: 1px solid #8D8D8D;
-border-radius: 10px;
-background-color: #F9F9F9;
-width: fit-content;
-margin-left: 20px;
 float: left;
 `;
 
@@ -24,10 +15,10 @@ padding: 20px;
 
 export const CardContainer = styled.div`
  display: flex;
-  justify-content: space-between;
-  margin-left:40px;
-  margin-right: 40px;
-  text-align: center;
+padding-left: 20px;
+padding-right: 20px;
+text-align: center;
+justify-content: space-between;
 align-items: center;
   @media (max-width: 768px) {
     display: flex;
