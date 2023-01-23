@@ -51,6 +51,21 @@ text-decoration: none;
 }
 `;
 
+const AddButton = styled.button`
+margin-top: 10px;
+  background: #5AADE5;
+border-radius: 10px;
+border: none;
+color: #fff;
+cursor: pointer;
+text-decoration: none;
+padding: 8px;
+width: 60%;
+&:hover {
+  background: #137bc0;
+}
+`;
+
 
 
 export default function Step3() {
@@ -122,10 +137,9 @@ export default function Step3() {
 
   return (
     <Container>
-      <StepTitleComponent props={'3. Qual a dimensão da área que pretende pintar?'}/>
+      <StepTitleComponent props={'3. Qual a dimensão da área que pretende pintar?'} />
       <Form>
         <FormTitle>Coloque as dimensões a ser pintada (m)</FormTitle>
-        <button onClick={addWall}>Add Wall</button>
         {
           wallHeights.map((_, index) => (
             <div key={index}>
@@ -139,6 +153,8 @@ export default function Step3() {
             </div>
           ))
         }
+        <AddButton onClick={addWall}>Adicionar parede</AddButton>
+
       </Form>
       <Form>
         <FormTitle>Coloque as dimensões da JANELA (m)</FormTitle>

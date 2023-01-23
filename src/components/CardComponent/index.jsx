@@ -1,8 +1,4 @@
 import styled from "styled-components";
-import internal_ambient from '../../assets/internal_ambient.svg';
-import external_ambient from '../../assets/external_ambient.svg'
-import both_ambients from '../../assets/both_ambients.svg'
-
 
 const Card = styled.div`
 border: 1px solid #8D8D8D;
@@ -29,8 +25,10 @@ padding: 20px;
 export const CardContainer = styled.div`
  display: flex;
   justify-content: space-between;
-  margin-left:80px;
-  margin-right: 80px;
+  margin-left:40px;
+  margin-right: 40px;
+  text-align: center;
+align-items: center;
   @media (max-width: 768px) {
     display: flex;
    margin: 0;
@@ -42,11 +40,13 @@ export const CardContainer = styled.div`
 `;
 
 const CardTitle = styled.h5`
-
+text-align: center;
+font-family: ${props => props.theme.fonts[0]};
 `;
 
 const CardRadioButton = styled.input`
 float: center;
+
 &:checked {
   background-color: #9BD9A7;
 }
