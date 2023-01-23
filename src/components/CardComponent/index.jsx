@@ -31,6 +31,14 @@ export const CardContainer = styled.div`
   justify-content: space-between;
   margin-left:80px;
   margin-right: 80px;
+  @media (max-width: 768px) {
+    display: flex;
+   margin: 0;
+   padding-top: 10px;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  }
 `;
 
 const CardTitle = styled.h5`
@@ -44,7 +52,7 @@ float: center;
 }
 `;
 
-export default function CardComponent({image, title, id}) {
+export default function CardComponent({ image, title, id }) {
   return (
     <CardContainer>
       <Card>

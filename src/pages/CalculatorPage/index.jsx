@@ -35,11 +35,13 @@ const StepButton = styled.button`
   justify-content: center;
   color: #fff;
   width: 100px;
-  position: absolute;
-  bottom: 0 !important;
+  position: fixed;
+  bottom: 0;
   cursor: pointer;
   margin-bottom: 50px;
-
+  @media (max-width: 768px) {
+    position: fixed;
+  }
 `;
 
 
