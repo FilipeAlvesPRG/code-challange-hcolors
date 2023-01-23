@@ -91,10 +91,10 @@ export default function TopBarComponent({ open }) {
         <LogoImage src={logo_with_text_black} />
       </a>
       <NavList open={open}>
-        <NavItem><LinkMenu href="#">Sobre nós</LinkMenu></NavItem>
-        <NavItem><LinkMenu href="calc">Calculadora</LinkMenu></NavItem>
-        <NavItem><LinkMenu href="#">Serviços</LinkMenu></NavItem>
-        <NavItem><LinkMenu href="#">Dicas</LinkMenu></NavItem>
+        <NavItem><LinkMenu href="/">Sobre nós</LinkMenu></NavItem>
+        <NavItem><LinkMenu href="/">Calculadora</LinkMenu></NavItem>
+        <NavItem><LinkMenu href="/">Serviços</LinkMenu></NavItem>
+        <NavItem><LinkMenu href="/">Dicas</LinkMenu></NavItem>
         <Button>Entrar</Button>
         <OutilineButton>Cadastro</OutilineButton>
       </NavList>
