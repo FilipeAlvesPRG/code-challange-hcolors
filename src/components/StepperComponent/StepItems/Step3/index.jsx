@@ -20,6 +20,7 @@ padding: 8px;
 const InputTextLabel = styled.label`
 font-family: ${props => props.theme.fonts[0]};
 display: block;
+margin-top: 20px;
 
 `;
 
@@ -46,6 +47,7 @@ color: #fff;
 margin-left: 10px;
 cursor: pointer;
 text-decoration: none;
+width: 150px;
 &:hover {
   background: #137bc0;
   margin-top: 50px;
@@ -86,7 +88,7 @@ export default function Step3() {
       setWallHeights([...wallHeights, 1]);
       setWallWidths([...wallWidths, 1]);
     } else {
-      alert("You cannot have more than 4 walls");
+      alert("Você não pode escolher mais do que 4 paredes");
     }
   }
 
