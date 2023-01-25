@@ -119,6 +119,7 @@ export default function Step3() {
     setRequiredArea(totalArea);
     suggestPurchase(totalArea);
     console.log(totalArea);
+    sessionStorage.setItem('totalAerea: ', totalArea);
     setActiveStep((i) => i + 1)
   }
 
@@ -136,6 +137,7 @@ export default function Step3() {
       i--;
     }
     setSuggestedPurchase(suggestion);
+ 
   }
 
   return (
