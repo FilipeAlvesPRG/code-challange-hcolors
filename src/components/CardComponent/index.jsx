@@ -43,13 +43,15 @@ float: center;
 }
 `;
 
-export default function CardComponent({ image, title, id }) {
+export default function CardComponent({ image, title, id, onChange, value }) {
   return (
     <CardContainer>
       <Card>
         <CardImage src={image} />
         <CardTitle>{title}</CardTitle>
-        <CardRadioButton type={'radio'} id={id} name={'ambient_type'}></CardRadioButton>
+        <CardRadioButton type={'radio'} value={value} id={id} name={'ambient_type'}
+        onChange={onChange}
+        ></CardRadioButton>
       </Card>
     </CardContainer>
   )

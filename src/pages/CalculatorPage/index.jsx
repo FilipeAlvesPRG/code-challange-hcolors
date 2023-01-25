@@ -8,7 +8,6 @@ import Step4 from "../../components/StepperComponent/StepItems/Step4";
 import { PaintContext } from "../../context/resultContext";
 
 const Container = styled.div`
-  margin-top: 40px;
 
 `;
 
@@ -30,8 +29,6 @@ const StepButton = styled.button`
   border-radius: 10px;
   border: none;
   padding: 10px;
-  align-items: center;
-  justify-content: center;
   color: #fff;
   width: 100px;
   position: fixed;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import StepTitleComponent from "../../StepTitleComponent";
+import { useState } from "react";
 
 const InputSelect = styled.select`
 border: 1px solid #8D8D8D;
@@ -21,11 +22,18 @@ justify-content: center;
 
 
 export default function Step2() {
+  const [selectedInputOption, serSelectedInputOption] = useState('');
+
+  function handleOptionChange(event) {
+    serSelectedInputOption(event.target.value);
+    sessionStorage.setItem('selectedSurfaceOption', event.target.value);
+  }
+
   return (
     <>
-      <StepTitleComponent props={'2. Em qual superfície a tinta será aplicada?'}/>
+      <StepTitleComponent props={'2. Em qual superfície a tinta será aplicada?'} />
       <InputContainer>
-        <InputSelect>
+        <InputSelect value={selectedInputOption} onChange={handleOptionChange}>
           <option value="">Selecione uma opção</option>
           <option value="parede">Parede</option>
           <option value="gesso">Gesso e Drywall</option>
