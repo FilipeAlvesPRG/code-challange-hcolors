@@ -13,6 +13,10 @@ O teste pode ser feito por qualquer nível de profissional, contudo o critério 
 
 Faça o fork ou baixe o projeto e rode o comando a seguir em seu diretorio:
 
+## Deploy do projeto
+
+https://hcolors-49f0a.web.app/
+
 ### `npm start`
 
 Após isso, o projeto estará rodando em sua máquina local:
