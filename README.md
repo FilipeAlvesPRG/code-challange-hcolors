@@ -12,15 +12,14 @@ O teste pode ser feito por qualquer nível de profissional, contudo o critério 
 ## Como rodar o projeto (localmente)
 
 Faça o fork ou baixe o projeto e rode o comando a seguir em seu diretorio:
-
-## Deploy do projeto
-
-https://hcolors-49f0a.web.app/
-
 ### `npm start`
 
 Após isso, o projeto estará rodando em sua máquina local:
 Abra em seu navegador [http://localhost:3000](http://localhost:3000) .
+
+## Deploy do projeto
+
+https://hcolors-49f0a.web.app/
 
 # Tecnologias
 
